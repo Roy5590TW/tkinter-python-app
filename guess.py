@@ -13,7 +13,12 @@ max_value = 100
 # 檢查猜測數字的函式
 def check_guess():
     global min_value, max_value
-    guess = int(guess_entry.get())
+    try:
+        
+        guess = int(guess_entry.get())
+    except ValueError:
+        result_label.config(text="請輸入有效的整數!")
+        return
 
     # 判斷猜測數字與答案的關係
     if guess < min_value or guess > max_value:
